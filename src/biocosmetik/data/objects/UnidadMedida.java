@@ -1,5 +1,5 @@
 package biocosmetik.data.objects;
-// Generated 29-ene-2013 12:16:42 by Hibernate Tools 3.2.1.GA
+// Generated 26-feb-2013 23:07:31 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
