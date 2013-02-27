@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="biocosmetik"/>
+  <table-filter match-name="estados"/>
+  <table-filter match-name="proveedores"/>
+  <table-filter match-name="tipo_entrada_inventario"/>
+  <table-filter match-name="inventario_materia_prima"/>
+  <table-filter match-name="clasificacion"/>
+  <table-filter match-name="categoria_materia_prima"/>
+  <table-filter match-name="unidad_medida"/>
+  <table-filter match-name="materia_prima"/>
+  <table-filter match-name="status_inventario"/>
+</hibernate-reverse-engineering>

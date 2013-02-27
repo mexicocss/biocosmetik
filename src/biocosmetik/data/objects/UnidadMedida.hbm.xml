@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2013 12:16:43 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.UnidadMedida" table="unidad_medida" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nomenclatura" type="string">
+            <column name="nomenclatura" length="45" not-null="true" />
+        </property>
+        <property name="unidad" type="string">
+            <column name="unidad" length="45" not-null="true" />
+        </property>
+        <set name="materiaPrimas" inverse="true">
+            <key>
+                <column name="unidad_medida" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.MateriaPrima" />
+        </set>
+    </class>
+</hibernate-mapping>

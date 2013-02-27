@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-ene-2013 11:26:34 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.Clientes" table="clientes" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estados" class="biocosmetik.data.objects.Estados" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <property name="razonSocial" type="string">
+            <column name="razon_social" length="90" not-null="true" />
+        </property>
+        <property name="nombreCorto" type="string">
+            <column name="nombre_corto" length="90" not-null="true" />
+        </property>
+        <property name="rfc" type="string">
+            <column name="RFC" length="13" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="65535" />
+        </property>
+        <property name="colonia" type="string">
+            <column name="colonia" length="90" />
+        </property>
+        <property name="delegacion" type="string">
+            <column name="delegacion" length="45" />
+        </property>
+        <property name="codigoPostal" type="string">
+            <column name="codigo_postal" length="5" />
+        </property>
+        <property name="telefono1" type="string">
+            <column name="telefono1" length="10" />
+        </property>
+        <property name="ext1" type="string">
+            <column name="ext1" length="3" />
+        </property>
+        <property name="telefono2" type="string">
+            <column name="telefono2" length="10" />
+        </property>
+        <property name="ext2" type="string">
+            <column name="ext2" length="3" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="10" />
+        </property>
+        <property name="nextel" type="string">
+            <column name="nextel" length="10" />
+        </property>
+        <property name="idNextel" type="string">
+            <column name="id_nextel" length="15" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="12" />
+        </property>
+        <property name="correo1" type="string">
+            <column name="correo1" length="85" />
+        </property>
+        <property name="correo2" type="string">
+            <column name="correo2" length="85" />
+        </property>
+        <property name="paginaWeb" type="string">
+            <column name="pagina_web" length="80" />
+        </property>
+        <property name="instrucciones" type="string">
+            <column name="instrucciones" length="65535" />
+        </property>
+        <property name="horarioAtencion" type="string">
+            <column name="horario_atencion" length="90" />
+        </property>
+        <set name="productoses" inverse="true">
+            <key>
+                <column name="cliente" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.Productos" />
+        </set>
+        <set name="lineaProductoses" inverse="true">
+            <key>
+                <column name="cliente" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.LineaProductos" />
+        </set>
+    </class>
+</hibernate-mapping>

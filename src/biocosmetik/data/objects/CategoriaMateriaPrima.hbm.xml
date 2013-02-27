@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-ene-2013 15:51:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.CategoriaMateriaPrima" table="categoria_materia_prima" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="categoria" type="string">
+            <column name="categoria" length="45" not-null="true" unique="true" />
+        </property>
+        <set name="materiaPrimas" inverse="true">
+            <key>
+                <column name="categoria" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.MateriaPrima" />
+        </set>
+    </class>
+</hibernate-mapping>

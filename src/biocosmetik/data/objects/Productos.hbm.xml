@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-ene-2013 11:26:34 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.Productos" table="productos" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="edicionProducto" class="biocosmetik.data.objects.EdicionProducto" fetch="select">
+            <column name="edicion_producto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subcategoriaProducto" class="biocosmetik.data.objects.SubcategoriaProducto" fetch="select">
+            <column name="subcategoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoProducto" class="biocosmetik.data.objects.TipoProducto" fetch="select">
+            <column name="tipo_producto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="publico" class="biocosmetik.data.objects.Publico" fetch="select">
+            <column name="publico" not-null="true" />
+        </many-to-one>
+        <many-to-one name="unidadMedida" class="biocosmetik.data.objects.UnidadMedida" fetch="select">
+            <column name="unidad_medida" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadoProducto" class="biocosmetik.data.objects.EstadoProducto" fetch="select">
+            <column name="estado_producto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="clientes" class="biocosmetik.data.objects.Clientes" fetch="select">
+            <column name="cliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoriaProducto" class="biocosmetik.data.objects.CategoriaProducto" fetch="select">
+            <column name="categoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lineaProductos" class="biocosmetik.data.objects.LineaProductos" fetch="select">
+            <column name="linea_productos" not-null="true" />
+        </many-to-one>
+        <property name="consecutivo" type="int">
+            <column name="consecutivo" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="90" />
+        </property>
+        <property name="contenidoNeto" type="int">
+            <column name="contenido_neto" not-null="true" />
+        </property>
+        <property name="equivalenteKg" type="java.lang.Float">
+            <column name="equivalente_kg" precision="12" scale="0" />
+        </property>
+        <property name="ubicacionPt" type="string">
+            <column name="ubicacion_pt" length="45" />
+        </property>
+        <property name="ubicacionGranel" type="string">
+            <column name="ubicacion_granel" length="45" />
+        </property>
+        <property name="claveAsignadaCliente" type="int">
+            <column name="clave_asignada_cliente" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="precio" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <one-to-one name="especificacionesProductos" class="biocosmetik.data.objects.EspecificacionesProducto" cascade="save-update"></one-to-one>
+    </class>
+</hibernate-mapping>

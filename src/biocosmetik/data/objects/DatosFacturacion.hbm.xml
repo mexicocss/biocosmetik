@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-ene-2013 15:51:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.DatosFacturacion" table="datos_facturacion" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientes" class="biocosmetik.data.objects.Clientes" fetch="select">
+            <column name="cliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estados" class="biocosmetik.data.objects.Estados" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <property name="rfc" type="string">
+            <column name="RFC" length="13" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="razon_social" length="90" />
+        </property>
+        <property name="domicilio" type="string">
+            <column name="domicilio" length="65535" />
+        </property>
+        <property name="colonia" type="string">
+            <column name="colonia" length="90" />
+        </property>
+        <property name="delegacion" type="string">
+            <column name="delegacion" length="90" />
+        </property>
+        <property name="codigoPostal" type="string">
+            <column name="codigo_postal" length="5" />
+        </property>
+        <set name="pedidoses" inverse="true">
+            <key>
+                <column name="datos_facturacion" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.Pedidos" />
+        </set>
+    </class>
+</hibernate-mapping>

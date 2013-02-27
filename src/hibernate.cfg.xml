@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://biocosmetik.servehttp.com:3306/biocosmetik</property>
+    <property name="hibernate.connection.username">bio</property>
+    <property name="hibernate.connection.password">biocosmetik3498</property>
+    
+    
+    <!--property name="hibernate.connection.url">jdbc:mysql://localhost:3306/biocosmetik</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root123</property-->
+    
+    <property name="hibernate.show_sql">false</property>
+    <mapping resource="biocosmetik/data/objects/Departamentos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/TipoUsuario.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/EstadoProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/LineaProductos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/CategoriaMateriaPrima.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/SubcategoriaProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/CategoriaProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Productos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Pertenencia.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Clasificacion.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Usuarios.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Sustitutos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Empleados.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Status.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Proveedores.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/DatosEntrega.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/CategoriaMaterialAcondicionamiento.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/DatosFacturacion.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Publico.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/EspecificacionesMateriaPrima.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/CondicionesVenta.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/TipoProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/EdicionProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Pedidos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/MateriaPrima.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Clientes.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/EspecificacionesProducto.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/MaterialesAcondicionamiento.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/UnidadMedida.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/Estados.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/StatusInventario.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/TipoEntradaInventario.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/InventarioMateriaPrima.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2013 12:16:43 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.StatusInventario" table="status_inventario" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="status" type="string">
+            <column name="status" length="45" />
+        </property>
+        <set name="inventarioMateriaPrimas" inverse="true">
+            <key>
+                <column name="status" not-null="true" />
+            </key>
+            <one-to-many class="biocosmetik.data.objects.InventarioMateriaPrima" />
+        </set>
+    </class>
+</hibernate-mapping>

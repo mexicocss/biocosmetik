@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-ene-2013 11:26:34 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.EspecificacionesProducto" table="especificaciones_producto" catalog="biocosmetik">
+        <id name="idProducto" type="int">
+            <column name="producto" />
+            <generator class="foreign">
+                <param name="property">productos</param>
+            </generator>
+        </id>
+        <one-to-one name="productos" class="biocosmetik.data.objects.Productos" constrained="true"></one-to-one>
+        <property name="numeroAnalisis" type="int">
+            <column name="numero_analisis" not-null="true" />
+        </property>
+        <property name="vigencia" type="date">
+            <column name="vigencia" length="10" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" length="80" />
+        </property>
+        <property name="olor" type="string">
+            <column name="olor" length="80" />
+        </property>
+        <property name="apariencia" type="string">
+            <column name="apariencia" length="80" />
+        </property>
+        <property name="homeginidad" type="string">
+            <column name="homeginidad" length="80" />
+        </property>
+        <property name="pigmentos" type="string">
+            <column name="pigmentos" length="80" />
+        </property>
+        <property name="ph" type="string">
+            <column name="ph" length="80" />
+        </property>
+        <property name="viscosidad" type="string">
+            <column name="viscosidad" length="80" />
+        </property>
+        <property name="estabilidadCentrifuga" type="string">
+            <column name="estabilidad_centrifuga" length="80" />
+        </property>
+        <property name="estabilidadTermica" type="string">
+            <column name="estabilidad_termica" length="80" />
+        </property>
+        <property name="aire" type="string">
+            <column name="aire" length="80" />
+        </property>
+        <property name="densidad" type="string">
+            <column name="densidad" length="80" />
+        </property>
+        <property name="puntoFusion" type="string">
+            <column name="punto_fusion" length="80" />
+        </property>
+        <property name="gradoGrayLusacc" type="string">
+            <column name="grado_gray_lusacc" length="80" />
+        </property>
+        <property name="microbiologicos" type="string">
+            <column name="microbiologicos" length="80" />
+        </property>
+        <property name="cuentaTotal" type="string">
+            <column name="cuenta_total" length="80" />
+        </property>
+        <property name="ecoliColiformesT" type="string">
+            <column name="ecoli_coliformes_t" length="80" />
+        </property>
+        <property name="hongosLevaduras" type="string">
+            <column name="hongos_levaduras" length="80" />
+        </property>
+        <property name="solubilidad" type="string">
+            <column name="solubilidad" length="80" />
+        </property>
+    </class>
+</hibernate-mapping>
