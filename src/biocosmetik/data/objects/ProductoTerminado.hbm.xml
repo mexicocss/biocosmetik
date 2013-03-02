@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-feb-2013 23:08:20 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="biocosmetik.data.objects.ProductoTerminado" table="producto_terminado" catalog="biocosmetik">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="clave" type="string">
+            <column name="clave" length="15" not-null="true" />
+        </property>
+        <many-to-one name="clientes" class="biocosmetik.data.objects.Clientes" fetch="select">
+            <column name="cliente" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" />
+        </property>
+        <property name="presentacion" type="string">
+            <column name="presentacion" length="35" />
+        </property>
+    </class>
+</hibernate-mapping>

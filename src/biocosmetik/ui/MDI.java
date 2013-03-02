@@ -10,8 +10,10 @@ import biocosmetik.ui.datos.FEmpleados;
 import biocosmetik.ui.datos.FLineas;
 import biocosmetik.ui.datos.FProveedores;
 import biocosmetik.ui.datos.inventarios.FInventarioMateriaPrima;
+import biocosmetik.ui.datos.inventarios.FInventarioProductos;
 import biocosmetik.ui.datos.materiales.FMateriaPrima;
 import biocosmetik.ui.datos.materiales.FMaterialesAcondicionamiento;
+import biocosmetik.ui.datos.materiales.FProductoTerminado;
 import biocosmetik.ui.datos.materiales.FProductos;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -66,6 +68,7 @@ public class MDI extends javax.swing.JFrame {
         mnArticulos3 = new javax.swing.JMenuItem();
         mnArticulos4 = new javax.swing.JMenuItem();
         mnArticulos5 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnDatos = new javax.swing.JMenu();
         mnEmpleados = new javax.swing.JMenuItem();
         mnClientes = new javax.swing.JMenuItem();
@@ -76,6 +79,7 @@ public class MDI extends javax.swing.JFrame {
         mnArticulos1 = new javax.swing.JMenuItem();
         mnArticulos2 = new javax.swing.JMenuItem();
         mnMateriasPrimas = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnAyuda = new javax.swing.JMenu();
 
         mnSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/application.png"))); // NOI18N
@@ -161,6 +165,15 @@ public class MDI extends javax.swing.JFrame {
         });
         mnInventario.add(mnArticulos5);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/box_closed.png"))); // NOI18N
+        jMenuItem2.setText("Producto terminado");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        mnInventario.add(jMenuItem2);
+
         mainMenu.add(mnInventario);
 
         mnDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/database.png"))); // NOI18N
@@ -232,6 +245,15 @@ public class MDI extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnMateriasPrimas);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/box_closed.png"))); // NOI18N
+        jMenuItem1.setText("Producto terminado");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         mnDatos.add(jMenu1);
 
@@ -390,7 +412,20 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnArticulos3ActionPerformed
 
     private void mnArticulos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnArticulos4ActionPerformed
-        // TODO add your handling code here:
+        FInventarioProductos component = new FInventarioProductos(this.session);
+        this.container.removeAll();
+        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
+        container.setLayout(containerLayout);
+        containerLayout.setHorizontalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
+        containerLayout.setVerticalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
     }//GEN-LAST:event_mnArticulos4ActionPerformed
 
     private void mnArticulos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnArticulos5ActionPerformed
@@ -413,10 +448,33 @@ public class MDI extends javax.swing.JFrame {
                 .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)));
     }//GEN-LAST:event_mnMateriasPrimasActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FProductoTerminado component = new FProductoTerminado(this.session, this);
+        this.container.removeAll();
+        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
+        container.setLayout(containerLayout);
+        containerLayout.setHorizontalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
+        containerLayout.setVerticalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mcontrols.ui.MPanel container;
     private Session session;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenuBar mainMenu;

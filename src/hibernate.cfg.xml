@@ -4,15 +4,12 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url"></property>
-    <property name="hibernate.connection.username"></property>
-    <property name="hibernate.connection.password"></property>
-    
-    
-    <!--property name="hibernate.connection.url">jdbc:mysql://localhost:3306/biocosmetik</property>
+    <property name="hibernate.connection.url">jdbc:mysql://biocosmetik.servehttp.com:3306/biocosmetik</property>
+    <property name="hibernate.connection.username">bio</property>
+    <property name="hibernate.connection.password">biocosmetik3498</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/biocosmetik</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root123</property-->
-    
+    <property name="hibernate.connection.password">root123</property>
     <property name="hibernate.show_sql">false</property>
     <mapping resource="biocosmetik/data/objects/Departamentos.hbm.xml"/>
     <mapping resource="biocosmetik/data/objects/TipoUsuario.hbm.xml"/>
@@ -47,5 +44,9 @@
     <mapping resource="biocosmetik/data/objects/StatusInventario.hbm.xml"/>
     <mapping resource="biocosmetik/data/objects/TipoEntradaInventario.hbm.xml"/>
     <mapping resource="biocosmetik/data/objects/InventarioMateriaPrima.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/ProductoTerminado.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/InventarioProductos.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/InventarioMaterialesAcondicionamiento.hbm.xml"/>
+    <mapping resource="biocosmetik/data/objects/InventarioProductoTerminado.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
