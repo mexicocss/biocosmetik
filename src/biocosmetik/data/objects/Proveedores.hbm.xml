@@ -77,5 +77,8 @@
             </key>
             <one-to-many class="biocosmetik.data.objects.MateriaPrima" />
         </set>
+        <property name="contacto" type="string">
+            <column name="contacto" length="85" />
+        </property>
     </class>
 </hibernate-mapping>

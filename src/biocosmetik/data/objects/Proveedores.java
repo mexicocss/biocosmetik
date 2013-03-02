@@ -48,6 +48,7 @@ public class Proveedores  implements java.io.Serializable {
      private String correo2;
      private String paginaWeb;
      private String pais;
+     private String contacto;
      private Set<MateriaPrima> materiaPrimas = new HashSet<MateriaPrima>(0);
 
     public Proveedores() {
@@ -61,7 +62,7 @@ public class Proveedores  implements java.io.Serializable {
         this.nombreCorto = nombreCorto;
         this.rfc = rfc;
     }
-    public Proveedores(Clasificacion clasificacion, Estados estados, String razonSocial, String nombreCorto, String rfc, String direccion, String colonia, String delegacion, String codigoPostal, String telefono1, String ext1, String telefono2, String ext2, String fax, String nextel, String idNextel, String celular, String correo1, String correo2, String paginaWeb, String pais, Set<MateriaPrima> materiaPrimas) {
+    public Proveedores(Clasificacion clasificacion, Estados estados, String razonSocial, String nombreCorto, String rfc, String direccion, String colonia, String delegacion, String codigoPostal, String telefono1, String ext1, String telefono2, String ext2, String fax, String nextel, String idNextel, String celular, String correo1, String correo2, String paginaWeb, String pais, Set<MateriaPrima> materiaPrimas, String contacto) {
        this.clasificacion = clasificacion;
        this.estados = estados;
        this.razonSocial = razonSocial;
@@ -84,6 +85,7 @@ public class Proveedores  implements java.io.Serializable {
        this.paginaWeb = paginaWeb;
        this.pais = pais;
        this.materiaPrimas = materiaPrimas;
+       this.contacto = contacto;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -292,6 +294,15 @@ public class Proveedores  implements java.io.Serializable {
     
     public void setMateriaPrimas(Set<MateriaPrima> materiaPrimas) {
         this.materiaPrimas = materiaPrimas;
+    }
+    
+    @Column(name="contacto", length=85)
+    public String getContacto() {
+        return this.contacto;
+    }
+    
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
     }
 
 

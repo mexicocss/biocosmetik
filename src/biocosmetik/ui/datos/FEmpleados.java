@@ -9,6 +9,7 @@ import biocosmetik.data.Session;
 import biocosmetik.data.models.MDepartamentos;
 import biocosmetik.data.models.MEmpleados;
 import biocosmetik.data.models.MEstados;
+import biocosmetik.data.models.MSexo;
 import biocosmetik.ui.Movimiento;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
@@ -46,6 +47,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
         data = model.getList();
         eModel = new MEstados(session);
         eData = eModel.getList();
+        sModel = new MSexo(session);
+        sData = this.sModel.getList();
         mTitleLabel1 = new mcontrols.ui.MTitleLabel();
         mPanel1 = new mcontrols.ui.MPanel();
         btnNuevo = new mcontrols.ui.MHeaderButton();
@@ -74,6 +77,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
         jLabel8 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox();
         mPanel4 = new mcontrols.ui.MPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -100,6 +105,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
         jTextField15 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox();
         mLabel1 = new mcontrols.ui.MLabel();
 
         mTitleLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/user_medical.png"))); // NOI18N
@@ -254,17 +261,36 @@ public class FEmpleados extends mcontrols.ui.MPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.activo}"), jCheckBox1, org.jdesktop.beansbinding.BeanProperty.create("selected"));
         bindingGroup.addBinding(binding);
 
+        jLabel21.setText("Sexo");
+
+        jComboBox3.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(
+                JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof biocosmetik.data.objects.Sexo) {
+                    biocosmetik.data.objects.Sexo sexo = (biocosmetik.data.objects.Sexo)value;
+                    setText(sexo.getSexo());
+                }
+                return this;
+            }
+        });
+        jComboBox3.setEnabled(false);
+
+        jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, sData, jComboBox3);
+        bindingGroup.addBinding(jComboBoxBinding);
+
         javax.swing.GroupLayout mPanel3Layout = new javax.swing.GroupLayout(mPanel3);
         mPanel3.setLayout(mPanel3Layout);
         mPanel3Layout.setHorizontalGroup(
             mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mPanel3Layout.createSequentialGroup()
+            .addGroup(mPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(mPanel3Layout.createSequentialGroup()
+                .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jCheckBox1))
-                    .addGroup(mPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mPanel3Layout.createSequentialGroup()
                         .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
@@ -272,15 +298,17 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                         .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mPanel3Layout.createSequentialGroup()
+                    .addGroup(mPanel3Layout.createSequentialGroup()
                         .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel21))
                         .addGap(6, 6, 6)
                         .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(mPanel3Layout.createSequentialGroup()
                                 .addComponent(jXDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -326,7 +354,11 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                 .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jCheckBox1)
                 .addContainerGap())
         );
@@ -461,7 +493,7 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                 .addGroup(mPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Dirección", mPanel4);
@@ -501,6 +533,22 @@ public class FEmpleados extends mcontrols.ui.MPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.telefonoContacto}"), jTextField16, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
+        jLabel22.setText("Sexo");
+
+        jComboBox1.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(
+                JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof biocosmetik.data.objects.Departamentos) {
+                    biocosmetik.data.objects.Departamentos departamento = (biocosmetik.data.objects.Departamentos)value;
+                    setText(departamento.getDepartamento());
+                }
+                return this;
+            }
+        });
+        jComboBox4.setEnabled(false);
+
         javax.swing.GroupLayout mPanel5Layout = new javax.swing.GroupLayout(mPanel5);
         mPanel5.setLayout(mPanel5Layout);
         mPanel5Layout.setHorizontalGroup(
@@ -512,9 +560,11 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                     .addComponent(jLabel19)
                     .addComponent(jLabel18)
                     .addComponent(jLabel17)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                     .addComponent(jTextField13)
                     .addComponent(jTextField14)
@@ -545,7 +595,11 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                 .addGroup(mPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Datos de Contacto", mPanel5);
@@ -573,8 +627,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
             mPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mPanel2Layout.createSequentialGroup()
                 .addComponent(mLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -598,7 +652,7 @@ public class FEmpleados extends mcontrols.ui.MPanel {
                 .addGap(0, 0, 0)
                 .addComponent(mPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(mPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -680,6 +734,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -693,6 +749,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -726,6 +784,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
     private mcontrols.ui.MPanel mPanel4;
     private mcontrols.ui.MPanel mPanel5;
     private mcontrols.ui.MTitleLabel mTitleLabel1;
+    private java.util.List<biocosmetik.data.objects.Sexo> sData;
+    private MSexo sModel;
     private javax.swing.JTextField txtnombre;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

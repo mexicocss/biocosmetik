@@ -91,5 +91,8 @@
             </key>
             <one-to-many class="biocosmetik.data.objects.Pedidos" />
         </set>
+        <many-to-one name="sexo" class="biocosmetik.data.objects.Sexo" fetch="select">
+            <column name="sexo" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

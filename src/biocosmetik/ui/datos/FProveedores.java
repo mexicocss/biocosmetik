@@ -68,6 +68,8 @@ public class FProveedores extends mcontrols.ui.MPanel {
         txtNombreCorto = new javax.swing.JTextField();
         cmbClasificacion = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         mPanel4 = new mcontrols.ui.MPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -229,6 +231,13 @@ public class FProveedores extends mcontrols.ui.MPanel {
 
         jLabel15.setText("Clasificación *");
 
+        jLabel8.setText("Contacto");
+
+        jTextField4.setEnabled(false);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.contacto}"), jTextField4, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
         javax.swing.GroupLayout mPanel3Layout = new javax.swing.GroupLayout(mPanel3);
         mPanel3.setLayout(mPanel3Layout);
         mPanel3Layout.setHorizontalGroup(
@@ -240,12 +249,14 @@ public class FProveedores extends mcontrols.ui.MPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel8))
                 .addGap(24, 24, 24)
                 .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4)
                     .addComponent(jTextField3)
                     .addComponent(txtNombreCorto, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
-                    .addComponent(cmbClasificacion, 0, 431, Short.MAX_VALUE)
+                    .addComponent(cmbClasificacion, 0, 309, Short.MAX_VALUE)
                     .addComponent(txtRazonSocial)
                     .addComponent(txtRFC))
                 .addContainerGap())
@@ -273,7 +284,11 @@ public class FProveedores extends mcontrols.ui.MPanel {
                 .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(cmbClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Generales", mPanel3);
@@ -347,7 +362,7 @@ public class FProveedores extends mcontrols.ui.MPanel {
                 .addGap(6, 6, 6)
                 .addGroup(mPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmbEstado, javax.swing.GroupLayout.Alignment.TRAILING, 0, 458, Short.MAX_VALUE)
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.Alignment.TRAILING, 0, 336, Short.MAX_VALUE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -481,7 +496,7 @@ public class FProveedores extends mcontrols.ui.MPanel {
                         .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mPanel5Layout.createSequentialGroup()
                         .addGroup(mPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                             .addComponent(jTextField18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(mPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,6 +728,7 @@ public class FProveedores extends mcontrols.ui.MPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -729,6 +745,7 @@ public class FProveedores extends mcontrols.ui.MPanel {
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
