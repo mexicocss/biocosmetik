@@ -509,6 +509,7 @@
                   </Properties>
                   <BindingProperties>
                     <BindingProperty name="elements" source="sData" target="jComboBox3" targetPath="elements" updateStrategy="0" immediately="false"/>
+                    <BindingProperty name="selectedItem" source="dataTable" sourcePath="${selectedElement.sexo}" target="jComboBox3" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
                   </BindingProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jComboBox3.setRenderer(new DefaultListCellRenderer() {&#xa;           @Override&#xa;           public Component getListCellRendererComponent(&#xa;                   JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {&#xa;               super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);&#xa;               if (value instanceof biocosmetik.data.objects.Sexo) {&#xa;                   biocosmetik.data.objects.Sexo sexo = (biocosmetik.data.objects.Sexo)value;&#xa;                   setText(sexo.getSexo());&#xa;               }&#xa;               return this;&#xa;           }&#xa;       });"/>

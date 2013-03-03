@@ -6,11 +6,11 @@
 package biocosmetik.ui.datos.inventarios;
 
 import biocosmetik.data.Session;
-import biocosmetik.data.models.MInventarioProductoTerminado;
-import biocosmetik.data.models.MProductoTerminado;
+import biocosmetik.data.models.MInventarioMaterialesAcondicionamiento;
+import biocosmetik.data.models.MMaterialesAcondicionamiento;
 import biocosmetik.data.models.MStatusInventario;
 import biocosmetik.data.models.MTipoEntradaInventario;
-import biocosmetik.data.objects.InventarioProductoTerminado;
+import biocosmetik.data.objects.InventarioMaterialesAcondicionamiento;
 import biocosmetik.ui.Movimiento;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
@@ -22,12 +22,12 @@ import mcontrols.ui.MPanel;
  *
  * @author 43699891
  */
-public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
+public class FInventarioMaterialesAcondicionamiento extends mcontrols.ui.MPanel {
 
     /**
      * Creates new form FmateriaPrima
      */
-    public FInventarioProductoTerminado(Session session) {
+    public FInventarioMaterialesAcondicionamiento(Session session) {
         this.session = session;
         initComponents();
     }
@@ -42,14 +42,14 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        model = new MInventarioProductoTerminado(session);
+        model = new MInventarioMaterialesAcondicionamiento(session);
         data = model.getList();
         tModel = new MTipoEntradaInventario(session);
         tData = tModel.getList();
         sModel = new MStatusInventario(session);
         sData = sModel.getList();
-        pModel = new MProductoTerminado(session);
-        pData = pModel.getList();
+        mModel = new MMaterialesAcondicionamiento(session);
+        mData = mModel.getList();
         mTitleLabel1 = new mcontrols.ui.MTitleLabel();
         mPanel1 = new mcontrols.ui.MPanel();
         btnNuevo = new mcontrols.ui.MHeaderButton();
@@ -74,7 +74,7 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
         mLabel1 = new mcontrols.ui.MLabel();
 
         mTitleLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/apple.png"))); // NOI18N
-        mTitleLabel1.setText("Inventario de producto terminado");
+        mTitleLabel1.setText("Inventario de materiales de acondicionamiento");
 
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/page.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
@@ -113,10 +113,9 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${lote}"));
         columnBinding.setColumnName("Lote");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${productoTerminado.nombre}"));
-        columnBinding.setColumnName("Producto Terminado");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${materialesAcondicionamiento.nombre}"));
+        columnBinding.setColumnName("Materiales Acondicionamiento");
         columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cantidad}"));
         columnBinding.setColumnName("Cantidad");
         columnBinding.setColumnClass(String.class);
@@ -158,10 +157,10 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.lote}"), jTextField5, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement}"), model, org.jdesktop.beansbinding.BeanProperty.create("inventarioProductoTerminado"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement}"), model, org.jdesktop.beansbinding.BeanProperty.create("inventarioMaterialesAcondicionamiento"));
         bindingGroup.addBinding(binding);
 
-        jLabel27.setText("Producto");
+        jLabel27.setText("Material");
 
         jComboBox6.setRenderer(new DefaultListCellRenderer() {
             @Override
@@ -206,18 +205,18 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
             public Component getListCellRendererComponent(
                 JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value instanceof biocosmetik.data.objects.ProductoTerminado) {
-                    biocosmetik.data.objects.ProductoTerminado p = (biocosmetik.data.objects.ProductoTerminado)value;
-                    setText(p.getClave() + " " + p.getNombre());
+                if (value instanceof biocosmetik.data.objects.MaterialesAcondicionamiento) {
+                    biocosmetik.data.objects.MaterialesAcondicionamiento m = (biocosmetik.data.objects.MaterialesAcondicionamiento)value;
+                    setText(m.getClave() + " " + m.getNombre());
                 }
                 return this;
             }
         });
         jComboBox8.setEnabled(false);
 
-        jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, pData, jComboBox8);
+        jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, mData, jComboBox8);
         bindingGroup.addBinding(jComboBoxBinding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.productoTerminado}"), jComboBox8, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.materialesAcondicionamiento}"), jComboBox8, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout mPanel3Layout = new javax.swing.GroupLayout(mPanel3);
@@ -240,7 +239,7 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
                     .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(mPanel3Layout.createSequentialGroup()
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 229, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         mPanel3Layout.setVerticalGroup(
@@ -272,7 +271,7 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
         jTabbedPane1.addTab("Generales", mPanel3);
 
         mLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/biocosmetik/ui/resources/apple.png"))); // NOI18N
-        mLabel1.setText("Datos del producto terminado");
+        mLabel1.setText("Datos del material de acondicionamiento");
 
         javax.swing.GroupLayout mPanel2Layout = new javax.swing.GroupLayout(mPanel2);
         mPanel2.setLayout(mPanel2Layout);
@@ -318,9 +317,9 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
                 .addComponent(mTitleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(mPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -330,8 +329,8 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         int sel = this.data.size();
         this.bindingGroup.unbind();
-        InventarioProductoTerminado ip = new InventarioProductoTerminado();
-        this.data.add(ip);
+        InventarioMaterialesAcondicionamiento imp = new InventarioMaterialesAcondicionamiento();
+        this.data.add(imp);
         this.bindingGroup.bind();
         this.dataTable.setRowSelectionInterval(sel, sel);
         this.enableControls(true);
@@ -360,7 +359,7 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         int s = this.dataTable.getSelectedRow();
-        this.model.save(this.model.getInventarioProductoTerminado());
+        this.model.save(this.model.getInventarioMaterialesAcondicionamiento());
         this.bindingGroup.unbind();
         this.enableControls(false);
         this.bindingGroup.bind();
@@ -389,8 +388,8 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
     private mcontrols.ui.MHeaderButton btnEditar;
     private mcontrols.ui.MButton btnGuardar;
     private mcontrols.ui.MHeaderButton btnNuevo;
-    private java.util.List<biocosmetik.data.objects.InventarioProductoTerminado> data;
-    private MInventarioProductoTerminado model;
+    private java.util.List<biocosmetik.data.objects.InventarioMaterialesAcondicionamiento> data;
+    private MInventarioMaterialesAcondicionamiento model;
     private Session session;
     private Movimiento movimiento;
     private mcontrols.ui.MTable dataTable;
@@ -406,13 +405,13 @@ public class FInventarioProductoTerminado extends mcontrols.ui.MPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
+    private java.util.List<biocosmetik.data.objects.MaterialesAcondicionamiento> mData;
+    private MMaterialesAcondicionamiento mModel;
     private mcontrols.ui.MLabel mLabel1;
     private mcontrols.ui.MPanel mPanel1;
     private mcontrols.ui.MPanel mPanel2;
     private mcontrols.ui.MPanel mPanel3;
     private mcontrols.ui.MTitleLabel mTitleLabel1;
-    private java.util.List<biocosmetik.data.objects.ProductoTerminado> pData;
-    private MProductoTerminado pModel;
     private java.util.List<biocosmetik.data.objects.StatusInventario> sData;
     private MStatusInventario sModel;
     private java.util.List<biocosmetik.data.objects.TipoEntradaInventario> tData;

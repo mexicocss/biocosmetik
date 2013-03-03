@@ -279,6 +279,8 @@ public class FEmpleados extends mcontrols.ui.MPanel {
 
         jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, sData, jComboBox3);
         bindingGroup.addBinding(jComboBoxBinding);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.sexo}"), jComboBox3, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout mPanel3Layout = new javax.swing.GroupLayout(mPanel3);
         mPanel3.setLayout(mPanel3Layout);

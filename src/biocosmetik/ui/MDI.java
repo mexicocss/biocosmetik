@@ -10,6 +10,8 @@ import biocosmetik.ui.datos.FEmpleados;
 import biocosmetik.ui.datos.FLineas;
 import biocosmetik.ui.datos.FProveedores;
 import biocosmetik.ui.datos.inventarios.FInventarioMateriaPrima;
+import biocosmetik.ui.datos.inventarios.FInventarioMaterialesAcondicionamiento;
+import biocosmetik.ui.datos.inventarios.FInventarioProductoTerminado;
 import biocosmetik.ui.datos.inventarios.FInventarioProductos;
 import biocosmetik.ui.datos.materiales.FMateriaPrima;
 import biocosmetik.ui.datos.materiales.FMaterialesAcondicionamiento;
@@ -429,7 +431,20 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnArticulos4ActionPerformed
 
     private void mnArticulos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnArticulos5ActionPerformed
-        // TODO add your handling code here:
+        FInventarioMaterialesAcondicionamiento component = new FInventarioMaterialesAcondicionamiento(this.session);
+        this.container.removeAll();
+        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
+        container.setLayout(containerLayout);
+        containerLayout.setHorizontalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
+        containerLayout.setVerticalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
     }//GEN-LAST:event_mnArticulos5ActionPerformed
 
     private void mnMateriasPrimasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnMateriasPrimasActionPerformed
@@ -467,7 +482,20 @@ public class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        FInventarioProductoTerminado component = new FInventarioProductoTerminado(this.session);
+        this.container.removeAll();
+        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
+        container.setLayout(containerLayout);
+        containerLayout.setHorizontalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
+        containerLayout.setVerticalGroup(
+                containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(containerLayout.createSequentialGroup()
+                .addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)));
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mcontrols.ui.MPanel container;

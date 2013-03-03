@@ -5,9 +5,9 @@
     <Component class="java.util.List" name="data">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="model.getList()"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="model = new MInventarioProductoTerminado(session);"/>
-        <AuxValue name="JavaCodeGenerator_DeclarationPost" type="java.lang.String" value="private MInventarioProductoTerminado model;&#xa;private Session session;&#xa;private Movimiento movimiento;"/>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;biocosmetik.data.objects.InventarioProductoTerminado&gt;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="model = new MInventarioMaterialesAcondicionamiento(session);"/>
+        <AuxValue name="JavaCodeGenerator_DeclarationPost" type="java.lang.String" value="private MInventarioMaterialesAcondicionamiento model;&#xa;private Session session;&#xa;private Movimiento movimiento;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;biocosmetik.data.objects.InventarioMaterialesAcondicionamiento&gt;"/>
       </AuxValues>
     </Component>
     <Component class="java.util.List" name="tData">
@@ -26,12 +26,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;biocosmetik.data.objects.StatusInventario&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="java.util.List" name="pData">
+    <Component class="java.util.List" name="mData">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="pModel.getList()"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="pModel = new MProductoTerminado(session);"/>
-        <AuxValue name="JavaCodeGenerator_DeclarationPost" type="java.lang.String" value="private MProductoTerminado pModel;"/>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;biocosmetik.data.objects.ProductoTerminado&gt;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="mModel.getList()"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="mModel = new MMaterialesAcondicionamiento(session);"/>
+        <AuxValue name="JavaCodeGenerator_DeclarationPost" type="java.lang.String" value="private MMaterialesAcondicionamiento mModel;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;biocosmetik.data.objects.MaterialesAcondicionamiento&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -62,9 +62,9 @@
               <Component id="mTitleLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               <Component id="mPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="211" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="182" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="mPanel2" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -76,7 +76,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/biocosmetik/ui/resources/apple.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Inventario de producto terminado"/>
+        <Property name="text" type="java.lang.String" value="Inventario de materiales de acondicionamiento"/>
       </Properties>
     </Component>
     <Container class="mcontrols.ui.MPanel" name="mPanel1">
@@ -164,10 +164,9 @@
                 <BindingParameter name="NAME" value="Lote"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
-              <Subbinding sourcePath="${productoTerminado.nombre}">
-                <BindingParameter name="NAME" value="Producto Terminado"/>
+              <Subbinding sourcePath="${materialesAcondicionamiento.nombre}">
+                <BindingParameter name="NAME" value="Materiales Acondicionamiento"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
               </Subbinding>
               <Subbinding sourcePath="${cantidad}">
                 <BindingParameter name="NAME" value="Cantidad"/>
@@ -267,7 +266,7 @@
                               <Component id="jComboBox8" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jTextField2" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="229" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -348,12 +347,12 @@
                     </BindingProperty>
                   </BindingProperties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create(&quot;${selectedElement}&quot;), model, org.jdesktop.beansbinding.BeanProperty.create(&quot;inventarioProductoTerminado&quot;));&#xa;bindingGroup.addBinding(binding);"/>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, dataTable, org.jdesktop.beansbinding.ELProperty.create(&quot;${selectedElement}&quot;), model, org.jdesktop.beansbinding.BeanProperty.create(&quot;inventarioMaterialesAcondicionamiento&quot;));&#xa;bindingGroup.addBinding(binding);"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel27">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Producto"/>
+                    <Property name="text" type="java.lang.String" value="Material"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox6">
@@ -385,11 +384,11 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <BindingProperties>
-                    <BindingProperty name="elements" source="pData" target="jComboBox8" targetPath="elements" updateStrategy="0" immediately="false"/>
-                    <BindingProperty name="selectedItem" source="dataTable" sourcePath="${selectedElement.productoTerminado}" target="jComboBox8" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
+                    <BindingProperty name="elements" source="mData" target="jComboBox8" targetPath="elements" updateStrategy="0" immediately="false"/>
+                    <BindingProperty name="selectedItem" source="dataTable" sourcePath="${selectedElement.materialesAcondicionamiento}" target="jComboBox8" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
                   </BindingProperties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jComboBox8.setRenderer(new DefaultListCellRenderer() {&#xa;           @Override&#xa;           public Component getListCellRendererComponent(&#xa;                   JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {&#xa;               super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);&#xa;               if (value instanceof biocosmetik.data.objects.ProductoTerminado) {&#xa;                   biocosmetik.data.objects.ProductoTerminado p = (biocosmetik.data.objects.ProductoTerminado)value;&#xa;                   setText(p.getClave() + &quot; &quot; + p.getNombre());&#xa;               }&#xa;               return this;&#xa;           }&#xa;       });"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jComboBox8.setRenderer(new DefaultListCellRenderer() {&#xa;           @Override&#xa;           public Component getListCellRendererComponent(&#xa;                   JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {&#xa;               super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);&#xa;               if (value instanceof biocosmetik.data.objects.MaterialesAcondicionamiento) {&#xa;                   biocosmetik.data.objects.MaterialesAcondicionamiento m = (biocosmetik.data.objects.MaterialesAcondicionamiento)value;&#xa;                   setText(m.getClave() + &quot; &quot; + m.getNombre());&#xa;               }&#xa;               return this;&#xa;           }&#xa;       });"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -401,7 +400,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/biocosmetik/ui/resources/apple.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Datos del producto terminado"/>
+            <Property name="text" type="java.lang.String" value="Datos del material de acondicionamiento"/>
           </Properties>
         </Component>
       </SubComponents>
